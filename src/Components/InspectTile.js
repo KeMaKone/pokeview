@@ -14,24 +14,19 @@ const InspectTile = props => {
     }
 
     const generateText = () => {
-        if(pokemon.types[1] === undefined){
-            return([`ID:\t${pokemon.id}`, 
-                `Name:\t${pokemon.name}`, 
-                `Height:\t${pokemon.height}`, 
-                `Weight:\t${pokemon.weight}`,
-                `Types:\t${pokemon.types[0].type.name}`,
-                `Health:\t${pokemon.stats[0].base_stat}`,
-                `Attack:\t${pokemon.stats[0].base_stat}`,
-                `Defence:\t${pokemon.stats[0].base_stat}`,
-                `Special Attack:\t${pokemon.stats[0].base_stat}`,
-                `Special Defence:\t${pokemon.stats[0].base_stat}`,
-                `Speed:\t${pokemon.stats[0].base_stat}`,]);
-        }
+        var abilities = "";
+        var types = "";
+        pokemon.abilities.forEach(ability => abilities += ability.ability.name + " ");
+        pokemon.types.forEach(type => types += type.type.name + " " );
+        console.log(abilities)
+        console.log(types)
+
         return([`ID:\t${pokemon.id}`, 
                 `Name:\t${pokemon.name}`, 
                 `Height:\t${pokemon.height}`, 
                 `Weight:\t${pokemon.weight}`,
-                `Types:\t${pokemon.types[0].type.name}\t${pokemon.types[1].type.name}`,
+                `Abilities:\t${abilities}`,
+                `Types:\t${types}`,
                 `Health:\t${pokemon.stats[0].base_stat}`,
                 `Attack:\t${pokemon.stats[0].base_stat}`,
                 `Defence:\t${pokemon.stats[0].base_stat}`,
