@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import IntroductionPage from './Pages/IntroductionPage';
+import Searchbar from './Components/Searchbar';
 import StatsPage from './Pages/StatsPage';
 
 function App() {
@@ -10,6 +11,10 @@ function App() {
   const handleIndepthViewToggle = () => {
     setIndepthView(!indepthView);
   }
+  
+  const handleSetView = value => {
+    setIndepthView(value)
+  }
 
   const handlePokemonChange = (newPokemon) => {
     setPokemon(newPokemon);
@@ -17,6 +22,7 @@ function App() {
 
   return(
     <div className='App'>
+      <Searchbar changePokemon={handlePokemonChange} setView={handleSetView}/>
       {indepthView? 
       <StatsPage pokemon={pokemon} viewToggle={handleIndepthViewToggle} />:
       <IntroductionPage viewToggle={handleIndepthViewToggle} changePokemon={handlePokemonChange} />}
