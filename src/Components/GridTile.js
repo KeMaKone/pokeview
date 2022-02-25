@@ -11,9 +11,9 @@ const GridTile = props => {
     if(pokemon.sprites === undefined){
         return <p>LOADING</p>
     }
-    
+
     return (
-        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id} ${pokemon.name}`]}/>
+        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id} ${pokemon.name}`]} onClick={props.onClick}/>
     );
 }
 /*

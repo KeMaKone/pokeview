@@ -12,7 +12,7 @@ const Tile = props =>{
     return (
 
         <div className="Tile">     
-            <img alt={img.alt} src={img.src} />
+            <img alt={img.alt} src={img.src} onClick={props.onClick}/>
             {text.map((item, idx) => (
                 <p key={idx}>{item}</p>
             ))}
