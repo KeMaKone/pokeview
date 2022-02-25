@@ -1,9 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 const Tile = props =>{
-    return( 
-        <div className="Tile">
+    const [img, setImg] = useState({});
+    const [text, setText] = useState([]);
 
+    useEffect(()=> {    
+        setImg(props.img);
+        setText(props.text);
+    }, [props])
+
+    return (
+
+        <div className="Tile">     
+            <img alt={img.alt} src={img.src} />
+            {text.map((item, idx) => (
+                <p key={idx}>{item}</p>
+            ))}
         </div>
     );
 }

@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Tile from "./Tile";
 
 const GridTile = props => {
-
+    const [pokemon, setPokemon] = useState(props.obj);
     
-  
+    useEffect(()=> {
+        props.obj.then(result => setPokemon(result));
+    })
+
+    if(pokemon.sprites === undefined){
+        return <p>LOADING</p>
+    }
+    
     return (
-        <div>     
-            <img alt={props.obj.name} src={props.obj.name} ></img>
-            <p>Pokemon</p>
-            <p>#{props.obj.id} {props.obj.name}</p>
-        </div>
+        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id} ${pokemon.name}`]}/>
     );
 }
+/*
+    <div> 
+            <img alt={pokemon.name} src={pokemon.sprites.front_default} />
+            <p>#{pokemon.id} {pokemon.name}</p>
+        </div>
+*/
 
 export default GridTile;
