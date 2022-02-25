@@ -4,7 +4,7 @@ import InspectTile from '../Components/InspectTile';
 const StatsPage = props => {
     return (
         <div className="StatsPage">
-            <button onClick={props.viewToggle}>Return</button>
+            <button className="returnbutton" onClick={props.viewToggle}>←</button>
             <InspectTile pokemon={props.pokemon} onClick={props.viewToggle} />
         </div> 
         );

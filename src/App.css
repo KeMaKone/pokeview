@@ -73,3 +73,21 @@
 img{
   width: max-content;
 }
+
+.returnbutton {
+  margin: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+button{
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1px;
+}
+
+.Searchbar{
+  align-self: center;
+  border-radius: 2px;
+}
