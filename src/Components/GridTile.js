@@ -19,7 +19,7 @@ const GridTile = props => {
     }
 
     return (
-        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id} ${pokemon.name}`]} onClick={handleClick}/>
+        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id}\t${pokemon.name}`]} onClick={handleClick}/>
     );
 }
 
