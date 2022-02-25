@@ -31,7 +31,6 @@ const IntroductionPage = () =>{
         setPokemons(getNewRoster())
     }, [])
 
-    console.log(pokemons)
     return(
         <ul>
             { pokemons.map((pokemon, idx) => (
