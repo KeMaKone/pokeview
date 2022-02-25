@@ -17,6 +17,7 @@ const Searchbar = props => {
             if(!res.ok) {
                 throw new Error(res.status) 
             } else {
+                setSearchword("");
                 res.json().then(res => props.changePokemon(res));
                 props.setView(true);
             }
