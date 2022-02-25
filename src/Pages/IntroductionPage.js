@@ -24,17 +24,21 @@ function getNewRoster(){
     return pokemons;    
 }
 
-const IntroductionPage = () =>{
+const IntroductionPage = props =>{
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
         setPokemons(getNewRoster())
     }, [])
 
+    const handlePokemonChange = pokemon => {
+        props.changePokemon(pokemon)
+    }
+
     return(
         <ul>
             { pokemons.map((pokemon, idx) => (
-                <GridTile key={idx} obj={pokemon} />
+                <GridTile key={idx} obj={pokemon} viewToggle={props.viewToggle} changePokemon={handlePokemonChange} />
             ))}
         </ul>
     );

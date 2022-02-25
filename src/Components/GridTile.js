@@ -12,15 +12,15 @@ const GridTile = props => {
         return <p>LOADING</p>
     }
 
+    const handleClick = e => {
+        e.preventDefault();
+        props.changePokemon(pokemon);
+        props.viewToggle();
+    }
+
     return (
-        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id} ${pokemon.name}`]} onClick={props.onClick}/>
+        <Tile img={{"alt":pokemon.name, "src":pokemon.sprites.front_default}} text={[`#${pokemon.id} ${pokemon.name}`]} onClick={handleClick}/>
     );
 }
-/*
-    <div> 
-            <img alt={pokemon.name} src={pokemon.sprites.front_default} />
-            <p>#{pokemon.id} {pokemon.name}</p>
-        </div>
-*/
 
 export default GridTile;
