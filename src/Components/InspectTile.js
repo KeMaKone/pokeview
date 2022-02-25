@@ -18,8 +18,6 @@ const InspectTile = props => {
         var types = "";
         pokemon.abilities.forEach(ability => abilities += ability.ability.name + " ");
         pokemon.types.forEach(type => types += type.type.name + " " );
-        console.log(abilities)
-        console.log(types)
 
         return([`ID:\t${pokemon.id}`, 
                 `Name:\t${pokemon.name}`, 
