@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const baseApiCall = 'https://pokeapi.co/api/v2/pokemon/';
 
 const Searchbar = props => {
-    const [searchword, setSearchword] = useState(null);
+    const [searchword, setSearchword] = useState("");
 
     const handleChange = e => {
         setSearchword(e.target.value.toLowerCase());
@@ -33,20 +33,10 @@ const Searchbar = props => {
         }));
     }
 
-    const suggestions = () => {
-        const limit = 5;
-        var suggestions = [];
-        if(searchword.length > 1){
-            suggestions = pokemonnames.filter(word => word.toLowerCase().startsWith(searchword)); 
-        }
-        return(suggestions);
-    }
-
-
     return (
         <div>
             <div className="Searchbar">
-                <input value={props.value} onChange={handleChange} onKeyDown={e => {if(e.key === 'Enter') handleSearch()}}/>
+                <input value={props.value} list="suggestions" onChange={handleChange} onKeyDown={e => {if(e.key === 'Enter') handleSearch()}} />
                 <button onClick={handleSearch}>Search</button>
                 <ToastContainer 
                     position="top-center"
@@ -60,9 +50,11 @@ const Searchbar = props => {
                     pauseOnHover
                 />
             </div>
-            {suggestions().map((suggestion, idx) => (
-                <li key={idx}>{suggestion}</li>
-            ))}
+            <datalist id="suggestions">
+                {pokemonnames.map((suggestion, idx) => (
+                    <option value={suggestion} />
+                ))}
+            </datalist>
         </div>
     );
 }

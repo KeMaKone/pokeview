@@ -3,7 +3,7 @@ import GridTile from "../Components/GridTile";
 
 const baseApiCall = 'https://pokeapi.co/api/v2/pokemon/';
 
-var limit = 3;
+var limit = 20;
 
 
 function generateRandoms(){
@@ -36,7 +36,7 @@ const IntroductionPage = props =>{
     }
 
     return(
-        <ul>
+        <ul className="IntroPage">
             { pokemons.map((pokemon, idx) => (
                 <GridTile key={idx} obj={pokemon} viewToggle={props.viewToggle} changePokemon={handlePokemonChange} />
             ))}
