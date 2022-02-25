@@ -8,36 +8,42 @@ const Searchbar = props => {
     const [searchword, setSearchword] = useState("");
 
     const handleChange = e => {
-        setSearchword(e.target.value.toLowerCase());
+        setSearchword(e.target.value.toLowerCase()); 
     }
 
     const handleSearch = () => {
-        fetch(baseApiCall+searchword)
-        .then(res => {
-            if(!res.ok) {
-                throw new Error(res.status) 
-            } else {
-                setSearchword("");
-                res.json().then(res => props.changePokemon(res));
-                props.setView(true);
-            }
+        const indexOfName = pokemonnames.findIndex(name => {
+            return name.toLowerCase() === searchword.toLowerCase()
         })
-        .catch(e => toast.error("Not a pokemon", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        }));
+        if (indexOfName !== -1){
+            fetch(baseApiCall+searchword).then(res => {
+                if(!res.ok) {
+                    throw new Error(res.status) 
+                } else {
+                    setSearchword("");
+                    res.json().then(res => props.changePokemon(res));
+                    props.setView(true);
+                }
+            })
+        } else {
+            toast.error("Not a pokemon", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        }
+        
     }
 
     return (
         <div>
             <div className="Searchbar">
                 <input value={props.value} list="suggestions" onChange={handleChange} onKeyDown={e => {if(e.key === 'Enter') handleSearch()}} />
-                <button onClick={handleSearch}>Search</button>
+                <button onClick={handleSearch}>🔍</button>
                 <ToastContainer 
                     position="top-center"
                     autoClose={2000}
