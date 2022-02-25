@@ -10,7 +10,7 @@ const GridTile = props => {
     })
 
     if(pokemon.sprites === undefined){
-        return <Grid color="#00BFFF" height={80} width={80} />
+        return <Grid className="Tile" color="#00BFFF" height={80} width={80} />
     }
 
     const handleClick = e => {
