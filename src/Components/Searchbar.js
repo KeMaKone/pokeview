@@ -52,7 +52,7 @@ const Searchbar = props => {
             </div>
             <datalist id="suggestions">
                 {pokemonnames.map((suggestion, idx) => (
-                    <option value={suggestion} />
+                    <option key={idx} value={suggestion} />
                 ))}
             </datalist>
         </div>
