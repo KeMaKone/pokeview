@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Grid } from "react-loader-spinner";
 import Tile from './Tile';
 
 const InspectTile = props => {
@@ -9,7 +10,7 @@ const InspectTile = props => {
     }, [props])
 
     if (pokemon === null || pokemon === undefined){
-        return <p>LOADING</p>
+        return <Grid color="#00BFFF" height={80} width={80} />
     }
 
     const generateText = () => {

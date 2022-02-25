@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Grid } from "react-loader-spinner";
 import Tile from "./Tile";
 
 const GridTile = props => {
@@ -9,7 +10,7 @@ const GridTile = props => {
     })
 
     if(pokemon.sprites === undefined){
-        return <p>LOADING</p>
+        return <Grid color="#00BFFF" height={80} width={80} />
     }
 
     const handleClick = e => {
