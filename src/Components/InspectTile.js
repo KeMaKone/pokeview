@@ -1,10 +1,8 @@
 import React from "react";
 import Tile from './Tile';
 
-class InspectTile extends React.Component{
-    render() {
-        return <div></div>
-    }
+const InspectTile = props => {
+    return <Tile />
 }
 
 export default InspectTile;

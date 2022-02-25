@@ -1,10 +1,16 @@
 import React from "react";
-import Tile from './Tile';
 
-class GridTile extends React.Component{
-    render() {
-        return <div></div>
-    }
+const GridTile = props => {
+
+    
+  
+    return (
+        <div>     
+            <img alt={props.obj.name} src={props.obj.name} ></img>
+            <p>Pokemon</p>
+            <p>#{props.obj.id} {props.obj.name}</p>
+        </div>
+    );
 }
 
 export default GridTile;

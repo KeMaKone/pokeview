@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import InspectTile from '../Components/InspectTile';
 
+const StatsPage = () => {
+    const [pokemon, setPokemon] = useState([]);
 
-class StatsPage extends React.Component{
-    render() {
-        return <InspectTile></InspectTile>
-    }
+    return <InspectTile obj={pokemon}></InspectTile>
 }
+
+export default StatsPage;
