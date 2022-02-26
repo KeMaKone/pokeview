@@ -46,6 +46,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 }
 
 /* On mouse-over, add a deeper shadow */
