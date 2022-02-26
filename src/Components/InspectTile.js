@@ -10,7 +10,10 @@ const InspectTile = props => {
     }, [props])
 
     if (pokemon === null || pokemon === undefined){
-        return <Grid className="Tile" color="#00BFFF" height={80} width={80} />
+        return(<div className="Tile">
+                <Grid color="#00BFFF" height={80} width={80} />
+            </div>
+        );
     }
 
     const generateText = () => {
